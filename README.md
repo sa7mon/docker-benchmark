@@ -1,6 +1,8 @@
 # Docker Benchmark
 A simple container to benchmark Docker filesystem performance using fio
 
+![Docker Pulls](https://img.shields.io/docker/pulls/hothamandcheese/docker-benchmark)
+
 ## Usage
 
 ### Default Settings with verbose output
