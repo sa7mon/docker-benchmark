@@ -20,6 +20,7 @@ A simple container to benchmark Docker filesystem performance using fio
 |   Variable   | Description                | Default |
 |:------------:|----------------------------|:-------:|
 | TESTFILESIZE | Size of test file to write |   10G   |
+|   IODEPTH    | Number of IO requests to queue in each test | 4 |
 
 ## Tests
 
