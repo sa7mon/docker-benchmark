@@ -15,7 +15,7 @@ echo "Running 1M Sequential Read test..."
 fio --name=1M-seqread --output-format=json --filename=test --sync=1 --rw=read --bs=1M --numjobs=1 --iodepth=$IODEPTH --group_reporting --filesize=$TESTFILESIZE --ioengine=libaio --runtime=300 | jq '.jobs[0] | {jobname: .jobname, read_bw_mbytes: (.read.bw * 0.001024), read_iops: .read.iops, write_bw_mbytes: (.write.bw * 0.001024), write_iops: .write.iops }' && rm test
 
 echo "Running 1M Sequential Write test..."
-fio --name=1M-seqwrite --output-format=json --filename=test --sync=1 --rw=write --bs=1M --numjobs=1 --iodepth=$IOPDEPTH --group_reporting --filesize=$TESTFILESIZE --ioengine=libaio --runtime=300 | jq '.jobs[0] | {jobname: .jobname, read_bw_mbytes: (.read.bw * 0.001024), read_iops: .read.iops, write_bw_mbytes: (.write.bw * 0.001024), write_iops: .write.iops }' && rm test
+fio --name=1M-seqwrite --output-format=json --filename=test --sync=1 --rw=write --bs=1M --numjobs=1 --iodepth=$IODEPTH --group_reporting --filesize=$TESTFILESIZE --ioengine=libaio --runtime=300 | jq '.jobs[0] | {jobname: .jobname, read_bw_mbytes: (.read.bw * 0.001024), read_iops: .read.iops, write_bw_mbytes: (.write.bw * 0.001024), write_iops: .write.iops }' && rm test
 
 echo "Running 4K Random Read test..."
 fio --name=4k-randread --output-format=json --filename=test --sync=1 --rw=randread --bs=4k --numjobs=1 --iodepth=$IODEPTH --group_reporting --filesize=$TESTFILESIZE --ioengine=libaio --runtime=300 | jq '.jobs[0] | {jobname: .jobname, read_bw_mbytes: (.read.bw * 0.001024), read_iops: .read.iops, write_bw_mbytes: (.write.bw * 0.001024), write_iops: .write.iops }' && rm test
